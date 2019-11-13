@@ -12,15 +12,17 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ articles }) => {
   console.log(articles)
   return (
-    <div>
+    <ul>
       {
         articles.map(({ id, attributes: { title } }: ArticleData) => (
-          <Link key={id} passHref href={`/articles/${id}`}>
-            <a>{title}</a>
-          </Link>
+          <li key={id}>
+            <Link passHref href={`/articles/${id}`}>
+              <a>{title}</a>
+            </Link>
+          </li>
         ))
       }
-    </div>
+    </ul>
   )
 }
 
